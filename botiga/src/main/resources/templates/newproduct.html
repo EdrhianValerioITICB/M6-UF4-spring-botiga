@@ -96,9 +96,10 @@
             </div>
             <div>
                 <label for="subcategoria">Subcategoria:</label>
-                <select id="subcat" name="subcat">
+                <!-- Componente de seleccion que recupera cada categoria y la añade como option -->
+                <select id="subcat" name="subcat" th:field="*{subcategoria}">
                     <th:block th:each="subcategory : ${subcategories}">
-                        <option th:value=${subcategory} th:text="${subcategory.name}" th:field="*{subcategoria}">
+                        <option th:value=${subcategory.subcategory_id} th:text="${subcategory.name}">
                         </option>
                     </th:block>
                 </select>
@@ -108,7 +109,7 @@
             </div>
         </form>
         <div class="link">
-            <a th:href="@{/index}">Tornar a l'índex</a>
+            <a th:href="@{/}">Tornar a l'índex</a>
         </div>
     </div>
 </body>
